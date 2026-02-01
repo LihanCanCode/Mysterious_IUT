@@ -1,61 +1,72 @@
 # Mysterious IUT
+Narrative-driven top-down adventure set on the IUT campus, built with C++ and raylib. You play as a new freshman thrilled to explore the grounds, only to stumble upon cryptic clues about a forgotten experiment and a missing professor.
 
-Narrative-driven top-down adventure set on the IUT campus, built with C++ and [raylib](https://www.raylib.com/). You explore familiar locations, interact with classmates and faculty, and uncover a mystery by collecting key items and solving lightweight puzzles.
+## Game Preview
+<p align="center">
+	<img src="src/conversation1.png" alt="In-game conversation" width="720">
+</p>
+<p align="center">
+	<img src="src/menu1.png" alt="Main menu" width="720">
+</p>
 
-The entry point lives in [src/main.cpp](src/main.cpp) and simply instantiates the `Game` class. All game logic resides in [src/game.cpp](src/game.cpp), which wires together the player controller, collision system, texture loading, and event sequences.
+## Entry Points
+- [src/main.cpp](src/main.cpp) boots the application and instantiates the `Game` class.
+- [src/game.cpp](src/game.cpp) orchestrates player control, collision resolution, texture loading, and scripted event flow.
 
 ## Story & Gameplay
+**Narrative**
+- The campus whispers about Professor Heigenberg and a clandestine experiment dubbed "Project Bhool Bhoolaiya". Designed to alter human memory, the trial backfired, erasing the assistant from everyone's mind and trapping the professor in a time loop. The freshman learns that the professor never vanished—he is reliving the loop as the freshman himself, searching for a way to break free.
 
-- **Setting** – A hand-drawn map of the IUT campus with buildings such as the lake, CDS, library, hospital, auditorium, and halls. The player spawns near the dorm area.
-- **Goal** – Progress through a chain of interactions: talk to NPCs (Bhai, Apu, Professor, Gardener, Hacker, Imam), gather key items (key, book, USB), unlock restricted areas (hospital, library, classrooms, maze), and trigger cinematic sequences that culminate in the final reveal.
-- **Mechanics** – Movement uses arrow keys; collisions prevent walking through buildings or props. Rectangle triggers inside `game.cpp` toggle state flags (e.g., `insideLibrary`, `showConversation`, or `mazeActive`) and display dialog PNGs to drive the storyline.
-- **Visuals & UI** – Conversations are delivered through illustrated panels (`conversation*.png`, `bhai_convo*.png`, etc.). Health, path overlays, mystery clues, and ending slides are rendered as textured quads anchored to the camera.
+**Setting**
+- Hand-drawn map of the IUT campus with landmarks such as the lake, CDS, library, hospital, auditorium, and dormitory halls. The player spawns near the dorm area, retracing steps that feel eerily familiar.
 
-### Flow From Code
+**Goal**
+- Progress through a sequence of interactions: meet Bhai, Apu, Professor, Gardener, Hacker, and Imam; gather key items (key, book, USB); unlock restricted areas like the hospital, library, classrooms, and the maze; trigger cinematic sequences that unravel the fate of Heigenberg and reveal the looping identity twist.
 
-1. `Game::Initialize()` loads every texture, sets the camera, and preps dialogue/state flags.
-2. `Game::Run()` (defined in `game.cpp`) loops through `Update()` and `Draw()`:
-  - `Update()` handles input, camera movement, collision checks against the building vectors, and state transitions when the player overlaps key rectangles.
-  - `Draw()` renders the base map, player sprite, NPCs, highlight prompts, and whichever conversation/ending textures are active based on the current progression flags.
-3. Completing the required interactions sets `Final = true`, advancing to the ending slides.
+**Mechanics**
+- Move with arrow keys while collision checks prevent walking through buildings or props. Rectangle triggers in [src/game.cpp](src/game.cpp) toggle state flags (such as `insideLibrary`, `showConversation`, `mazeActive`) and activate dialog panels to drive the narrative.
+
+**Visuals & UI**
+- Conversations appear through illustrated panels (`conversation*.png`, `bhai_convo*.png`, etc.). Health indicators, path overlays, mystery clues, and ending slides render as textured quads anchored to the camera.
+
+## Flow From Code
+- `Game::Initialize()` loads textures, configures the camera, and primes dialogue/state flags.
+- `Game::Run()` loops `Update()` and `Draw()`.
+	- `Update()` handles input, camera movement, collision checks against building geometry, and state transitions when the player overlaps trigger rectangles.
+	- `Draw()` renders the base map, player, NPCs, prompts, and whichever conversation or ending textures match the current progression flags.
+- Completing the required interactions flips `Final = true`, advancing to the ending slides.
 
 ## Controls
-
-- **Arrow keys** – Move the protagonist
-- **Space/Enter** – Advance conversation panels where applicable
-- **Escape** – Quit (handled by raylib default window close)
+- Arrow keys: Move the protagonist
+- Space or Enter: Advance conversation panels (when shown)
+- Escape: Quit (raylib default window close)
 
 ## Run The Game (Prebuilt Executable)
-
-The repository ships with a ready-to-play binary in `src/game.exe`. Launch it from the `src` directory so relative asset loads succeed.
+Launch the ready-to-play binary from the `src` directory so relative asset paths resolve correctly:
 
 ```powershell
-Set-Location "D:/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src"
+Set-Location "path\to\Project_Fall\src"
 ./game.exe
 ```
 
 ## Build From Source
-
-1. Install the official **raylib 5.0 Windows** package (defaults to `C:/raylib`).
+1. Install the official raylib 5.0 Windows package (defaults to `C:\raylib`).
 2. Open PowerShell in the project root and build from `src`:
 
-  ```powershell
-  Set-Location "D:/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src"
-  mingw32-make
-  ```
+```powershell
+Set-Location "path\to\Project_Fall\src"
+mingw32-make
+```
 
-  The Makefile links against `C:/raylib/raylib` by default. Override via `mingw32-make RAYLIB_PATH="X:/path/to/raylib"` if your SDK lives elsewhere.
-
-3. Run the fresh executable as described above.
+3. The Makefile links against `C:\raylib\raylib` by default. Override with `mingw32-make RAYLIB_PATH="X:/path/to/raylib"` if your SDK differs.
+4. Run the freshly built executable using the steps from the previous section.
 
 ## Assets
-
-- `Pics/` and `src/Pics/` (ignored for Git) contain the original art sources.
-- Production textures are copied beside the executable under `src/` so the game can load them without extra configuration.
+- `Pics/` and `src/Pics/` (ignored by Git) store the original artwork sources.
+- Production textures live beside the executable under `src/` so the game can load them without extra configuration.
 
 ## Credits
-
-- Game design, story, and art – Team 14
-- Engine – raylib 5.0 by Ramon Santamaría and contributors
+- Game design, story, and art: Lihan,Nafiz and Shadab
+- Engine: raylib 5.0 by Ramon Santamaria and contributors
 
 Enjoy uncovering the mysteries of IUT!
