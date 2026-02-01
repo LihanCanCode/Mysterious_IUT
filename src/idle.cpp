@@ -5,7 +5,7 @@ Idle::Idle() : Player() {
 }
 
 void Idle::LoadTextures() {
-    spriteSheet = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/idle.png");
+    spriteSheet = LoadTexture("idle.png");
     frameWidth = spriteSheet.width;
     frameHeight = spriteSheet.height;
     textureLoaded = true;

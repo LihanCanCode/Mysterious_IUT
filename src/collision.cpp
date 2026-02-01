@@ -437,33 +437,33 @@ void InsideMaze(Rectangle& playerRect, const std::vector<Rectangle>& mazeCollisi
 
 
 
-void InsideLibrary(Rectangle& playerRect, const std::vector<Rectangle>& libraryCollisions) {
-    for (const auto& rect : libraryCollisions) {
-        float overlapX = (playerRect.x + playerRect.width / 2) - (rect.x + rect.width / 2);
-        float overlapY = (playerRect.y + playerRect.height / 2) - (rect.y + rect.height / 2);
-        float halfWidthSum = (playerRect.width + rect.width) / 2;
-        float halfHeightSum = (playerRect.height + rect.height) / 2;
+// void InsideLibrary(Rectangle& playerRect, const std::vector<Rectangle>& libraryCollisions) {
+//     for (const auto& rect : libraryCollisions) {
+//         float overlapX = (playerRect.x + playerRect.width / 2) - (rect.x + rect.width / 2);
+//         float overlapY = (playerRect.y + playerRect.height / 2) - (rect.y + rect.height / 2);
+//         float halfWidthSum = (playerRect.width + rect.width) / 2;
+//         float halfHeightSum = (playerRect.height + rect.height) / 2;
 
-        if (fabs(overlapX) < halfWidthSum && fabs(overlapY) < halfHeightSum) {
-            float penetrationX = halfWidthSum - fabs(overlapX);
-            float penetrationY = halfHeightSum - fabs(overlapY);
+//         if (fabs(overlapX) < halfWidthSum && fabs(overlapY) < halfHeightSum) {
+//             float penetrationX = halfWidthSum - fabs(overlapX);
+//             float penetrationY = halfHeightSum - fabs(overlapY);
 
-            if (penetrationX < penetrationY) {
-                if (overlapX > 0) {
-                    playerRect.x += penetrationX;
-                } else {
-                    playerRect.x -= penetrationX;
-                }
-            } else {
-                if (overlapY > 0) {
-                    playerRect.y += penetrationY;
-                } else {
-                    playerRect.y -= penetrationY;
-                }
-            }
-        }
-    }
-}
+//             if (penetrationX < penetrationY) {
+//                 if (overlapX > 0) {
+//                     playerRect.x += penetrationX;
+//                 } else {
+//                     playerRect.x -= penetrationX;
+//                 }
+//             } else {
+//                 if (overlapY > 0) {
+//                     playerRect.y += penetrationY;
+//                 } else {
+//                     playerRect.y -= penetrationY;
+//                 }
+//             }
+//         }
+//     }
+// }
 
 void InsideClassroom(Rectangle& playerRect, const std::vector<Rectangle>& classroomCollisions) {
     for (const auto& rect : classroomCollisions) {
@@ -493,33 +493,33 @@ void InsideClassroom(Rectangle& playerRect, const std::vector<Rectangle>& classr
     }
 }
 
-void InsideHall(Rectangle& playerRect,const std::vector<Rectangle>& hallCollisions) {
-    for (const auto& rect : hallCollisions) {
-        float overlapX = (playerRect.x + playerRect.width / 2) - (rect.x + rect.width / 2);
-        float overlapY = (playerRect.y + playerRect.height / 2) - (rect.y + rect.height / 2);
-        float halfWidthSum = (playerRect.width + rect.width) / 2;
-        float halfHeightSum = (playerRect.height + rect.height) / 2;
+// void InsideHall(Rectangle& playerRect,const std::vector<Rectangle>& hallCollisions) {
+//     for (const auto& rect : hallCollisions) {
+//         float overlapX = (playerRect.x + playerRect.width / 2) - (rect.x + rect.width / 2);
+//         float overlapY = (playerRect.y + playerRect.height / 2) - (rect.y + rect.height / 2);
+//         float halfWidthSum = (playerRect.width + rect.width) / 2;
+//         float halfHeightSum = (playerRect.height + rect.height) / 2;
 
-        if (fabs(overlapX) < halfWidthSum && fabs(overlapY) < halfHeightSum) {
-            float penetrationX = halfWidthSum - fabs(overlapX);
-            float penetrationY = halfHeightSum - fabs(overlapY);
+//         if (fabs(overlapX) < halfWidthSum && fabs(overlapY) < halfHeightSum) {
+//             float penetrationX = halfWidthSum - fabs(overlapX);
+//             float penetrationY = halfHeightSum - fabs(overlapY);
 
-            if (penetrationX < penetrationY) {
-                if (overlapX > 0) {
-                    playerRect.x += penetrationX;
-                } else {
-                    playerRect.x -= penetrationX;
-                }
-            } else {
-                if (overlapY > 0) {
-                    playerRect.y += penetrationY;
-                } else {
-                    playerRect.y -= penetrationY;
-                }
-            }
-        }
-    }
-}
+//             if (penetrationX < penetrationY) {
+//                 if (overlapX > 0) {
+//                     playerRect.x += penetrationX;
+//                 } else {
+//                     playerRect.x -= penetrationX;
+//                 }
+//             } else {
+//                 if (overlapY > 0) {
+//                     playerRect.y += penetrationY;
+//                 } else {
+//                     playerRect.y -= penetrationY;
+//                 }
+//             }
+//         }
+//     }
+// }
 
 void InsideAudi(Rectangle& playerRect,const std::vector<Rectangle>& audiCollisions) {
     for (const auto& rect : audiCollisions) {

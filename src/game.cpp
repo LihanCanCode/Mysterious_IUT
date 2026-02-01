@@ -259,7 +259,7 @@ void Game::Initialize() {
 
     player.LoadTextures();
     idle.LoadTextures();
-    map.Load("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/map2.png");
+    map.Load("map2.png");
 
     camera.target = player.position;
     camera.offset = {(float)GetScreenWidth() / 2, (float)GetScreenHeight() / 2};
@@ -269,105 +269,100 @@ void Game::Initialize() {
     SetTargetFPS(60);
     initialized = true;
 
-    menu[0] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/menu1.png");
-    menu[1] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/menu2.png");
-    menu[2] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/menu3.png");
-       
+    const char* menuFiles[3] = {"menu1.png", "menu2.png", "menu3.png"};
+    for (int i = 0; i < 3; i++) {
+        menu[i] = LoadTexture(menuFiles[i]);
+    }
 
-    // Load the conversation textures
-    conversationTexture1 = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/conversation1.png");
-    conversationTexture2 = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/conversation2.png");
-    conversationTexture3 = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/conversation3.png");
-    conversationTexture4 = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/conversation4.png");
-    conversationTexture5 = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/conversation5.png");
-    conversationTexture6 = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/conversation6.png");
-    conversationTexture7 = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/conversation7.png");
-    conversationTexture8 = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/conversation8.png");
-    keyTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/key.png"); // Load the key texture
-    hospitalTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/hospital.png");
-    libraryTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/library.png");
-    cdsTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/cds.png");
-    bookTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/book.png");
-    mysteryTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/mystery.png");
-    mysteryTexture2 = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/mystery2.png");
-    mysteryTexture3 = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/mystery3.png");
-    classroomTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/classroom.png");
-    cipherTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/cipher.png");
-    cipherTexture2 = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/cipher2.png");
-    usbTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/usb.png");
-    hallTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/hall.png");
-    audiTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/audi.png");
-    //proTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/professor.png");
+    const char* conversationFiles[8] = {
+        "conversation1.png", "conversation2.png", "conversation3.png", "conversation4.png",
+        "conversation5.png", "conversation6.png", "conversation7.png", "conversation8.png"
+    };
+    Texture2D* conversationTargets[8] = {
+        &conversationTexture1, &conversationTexture2, &conversationTexture3, &conversationTexture4,
+        &conversationTexture5, &conversationTexture6, &conversationTexture7, &conversationTexture8
+    };
+    for (int i = 0; i < 8; i++) {
+        *conversationTargets[i] = LoadTexture(conversationFiles[i]);
+    }
+
+    keyTexture = LoadTexture("key.png");
+    hospitalTexture = LoadTexture("hospital.png");
+    libraryTexture = LoadTexture("library.png");
+    cdsTexture = LoadTexture("cds.png");
+    bookTexture = LoadTexture("book.png");
+    mysteryTexture = LoadTexture("mystery.png");
+    mysteryTexture2 = LoadTexture("mystery2.png");
+    mysteryTexture3 = LoadTexture("mystery3.png");
+    classroomTexture = LoadTexture("classroom.png");
+    cipherTexture = LoadTexture("cipher.png");
+    cipherTexture2 = LoadTexture("cipher2.png");
+    usbTexture = LoadTexture("usb.png");
+    hallTexture = LoadTexture("hall.png");
+    audiTexture = LoadTexture("audi.png");
     professor.LoadTextures();
-    hackerTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/hacker.png");
-    mazeTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/maze.png");
-    bhaiTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/Bhai.png");
+    hackerTexture = LoadTexture("hacker.png");
+    mazeTexture = LoadTexture("maze.png");
+    bhaiTexture = LoadTexture("Bhai.png");
 
-    bhaiConvoTexture[0] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/bhai_convo1.png");
-    bhaiConvoTexture[1] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/bhai_convo2.png");
-    bhaiConvoTexture[2] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/bhai_convo3.png");
-    bhaiConvoTexture[3] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/bhai_convo4.png");
-    bhaiConvoTexture[4] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/bhai_convo5.png");
-    bhaiConvoTexture[5] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/bhai_convo6.png");
-    bhaiConvoTexture[6] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/bhai_convo7.png");
-    bhaiConvoTexture[7] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/bhai_convo8.png");
-    bhaiConvoTexture[8] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/bhai_convo9.png");
-    bhaiConvoTexture[9] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/bhai_convo10.png");
-    bhaiConvoTexture[10] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/bhai_convo11.png");
+    const char* bhaiFiles[11] = {
+        "bhai_convo1.png", "bhai_convo2.png", "bhai_convo3.png", "bhai_convo4.png", "bhai_convo5.png",
+        "bhai_convo6.png", "bhai_convo7.png", "bhai_convo8.png", "bhai_convo9.png", "bhai_convo10.png",
+        "bhai_convo11.png"
+    };
+    for (int i = 0; i < 11; i++) {
+        bhaiConvoTexture[i] = LoadTexture(bhaiFiles[i]);
+    }
 
-    
-    apuConvoTexture[0] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/apu_convo1.png");
-    apuConvoTexture[1] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/apu_convo2.png");
-    apuConvoTexture[2] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/apu_convo3.png");
-    apuConvoTexture[3] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/apu_convo4.png");
-    apuConvoTexture[4] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/apu_convo5.png");
-    apuConvoTexture[5] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/apu_convo6.png");
-    apuConvoTexture[6] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/apu_convo7.png");
-    
-    hackerConvoTexture[0] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/hacker_convo_1.png");
-    hackerConvoTexture[1] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/hacker_convo_2.png");
-    hackerConvoTexture[2] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/hacker_convo_3.png");
-    hackerConvoTexture[3] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/hacker_convo_4.png");
-    hackerConvoTexture[4] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/hacker_convo_5.png");
-    hackerConvoTexture[5] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/hacker_convo_6.png");
-    hackerConvoTexture[6] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/hacker_convo_7.png");
-    gardenerConvoTexture[0] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/gardener_convo1.png");
-    gardenerConvoTexture[1] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/gardener_convo2.png");
-    gardenerConvoTexture[2] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/gardener_convo3.png");
-    gardenerConvoTexture[3] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/gardener_convo4.png");
-    gardenerConvoTexture[4] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/gardener_convo5.png");
-    gardenerConvoTexture[5] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/gardener_convo6.png");
-    gardenerConvoTexture[6] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/gardener_convo7.png");
-    proConvoTexture[0] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro1.png");
-    proConvoTexture[1] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro2.png");
-    proConvoTexture[2] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro3.png");
-    proConvoTexture[3] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro4.png");
-    proConvoTexture[4] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro5.png");
-    proConvoTexture[5] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro6.png");
-    proConvoTexture[6] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro7.png");
-    proConvoTexture[7] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro8.png");
-    proConvoTexture[8] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro9.png");
-    proConvoTexture[9] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro10.png");
-    proConvoTexture[10] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro11.png");
-    proConvoTexture[11] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro12.png");
-    proConvoTexture[12] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro13.png");
-    proConvoTexture[13] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro14.png");
+    const char* apuFiles[7] = {
+        "apu_convo1.png", "apu_convo2.png", "apu_convo3.png", "apu_convo4.png", "apu_convo5.png",
+        "apu_convo6.png", "apu_convo7.png"
+    };
+    for (int i = 0; i < 7; i++) {
+        apuConvoTexture[i] = LoadTexture(apuFiles[i]);
+    }
 
-    pathTexture1 = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/path1.png");
-    pathTexture2 = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/path2.png");
+    const char* hackerFiles[7] = {
+        "hacker_convo_1.png", "hacker_convo_2.png", "hacker_convo_3.png", "hacker_convo_4.png",
+        "hacker_convo_5.png", "hacker_convo_6.png", "hacker_convo_7.png"
+    };
+    for (int i = 0; i < 7; i++) {
+        hackerConvoTexture[i] = LoadTexture(hackerFiles[i]);
+    }
 
+    const char* gardenerFiles[7] = {
+        "gardener_convo1.png", "gardener_convo2.png", "gardener_convo3.png", "gardener_convo4.png",
+        "gardener_convo5.png", "gardener_convo6.png", "gardener_convo7.png"
+    };
+    for (int i = 0; i < 7; i++) {
+        gardenerConvoTexture[i] = LoadTexture(gardenerFiles[i]);
+    }
 
-    finalTexture[0] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/end1.png");
-    finalTexture[1] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/end2.png");
-    finalTexture[2] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/end3.png");
-    finalTexture[3] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/end4.png");
+    const char* professorConvoFiles[14] = {
+        "pro1.png", "pro2.png", "pro3.png", "pro4.png", "pro5.png", "pro6.png", "pro7.png",
+        "pro8.png", "pro9.png", "pro10.png", "pro11.png", "pro12.png", "pro13.png", "pro14.png"
+    };
+    for (int i = 0; i < 14; i++) {
+        proConvoTexture[i] = LoadTexture(professorConvoFiles[i]);
+    }
 
-    imamTexture[0] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/conversation5.png");
-    imamTexture[1] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/conversation6.png");
-    imamTexture[2] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/conversation7.png");
-    imamTexture[3] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/conversation8.png");
-    gardenerTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/gardener.png");
-    apuTexture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/apu.png");
+    pathTexture1 = LoadTexture("path1.png");
+    pathTexture2 = LoadTexture("path2.png");
+
+    const char* finalFiles[4] = {"end1.png", "end2.png", "end3.png", "end4.png"};
+    for (int i = 0; i < 4; i++) {
+        finalTexture[i] = LoadTexture(finalFiles[i]);
+    }
+
+    const char* imamFiles[4] = {
+        "conversation5.png", "conversation6.png", "conversation7.png", "conversation8.png"
+    };
+    for (int i = 0; i < 4; i++) {
+        imamTexture[i] = LoadTexture(imamFiles[i]);
+    }
+
+    gardenerTexture = LoadTexture("gardener.png");
+    apuTexture = LoadTexture("apu.png");
     source1={0.0f,0.0f,(float)mysteryTexture2.width,(float)mysteryTexture2.height};
 
 
@@ -445,12 +440,12 @@ void Game::UpdateCamera() {
     else if (insideCDS) {
         // Set the camera target and zoom for the CDS
         camera.target = player.position;
-        camera.zoom = 1.2f; // Adjust the zoom level for the CDS
+        camera.zoom = 1.1f; // Adjust the zoom level for the CDS
 
         // Constrain the camera within the CDS boundaries
         float minX = 0 + GetScreenWidth() / 2 / camera.zoom;
         float minY = 0 + GetScreenHeight() / 2 / camera.zoom;
-        float maxX = 1900 - GetScreenWidth() / 2 / camera.zoom;
+        float maxX = 1800 - GetScreenWidth() / 2 / camera.zoom;
         float maxY = 1080 - GetScreenHeight() / 2 / camera.zoom;
 
         if (camera.target.x < minX) camera.target.x = minX;
@@ -587,7 +582,7 @@ void Game::Run() {
                 playerPositionUpdated=false;
             }
             
-            InsideLibrary(playerCollisionRect, libraryCOllisions);
+            InsideMaze(playerCollisionRect, libraryCOllisions);
 
             if(sequence7){
                 FinalCollision(playerCollisionRect, lastRect, Final);
@@ -605,7 +600,7 @@ void Game::Run() {
 
         if(insideClassroom){
 
-            InsideClassroom(playerCollisionRect, classroomCollisions);
+            InsideMaze(playerCollisionRect, classroomCollisions);
             if(IsKeyPressed(KEY_C)){
                 insideClassroom=false;
                 player.position.x=1990;
@@ -628,7 +623,7 @@ void Game::Run() {
         if(insideHall){
             if(sequence4)
                 ResolvePlayerHackerCollision(playerCollisionRect, hackerRect, showHackerConvo, hackerConvoStep);
-            InsideHall(playerCollisionRect, hallCollisions);
+            InsideMaze(playerCollisionRect, hallCollisions);
             if(IsKeyPressed(KEY_C)){
                 insideHall=false;
                 player.position.x=1860;
@@ -959,11 +954,11 @@ void Game::Run() {
         if (showDebugInfo) {
             DrawText("IUT Chronicles - RPG", 10, 10, 20, BLACK);
             DrawText(TextFormat("FPS: %d", GetFPS()), 10, 40, 16, BLACK);
-            DrawText(TextFormat("Player position: (%.2f, %.2f)", player.position.x, player.position.y), GetScreenWidth() - 300, 10, 20, BLACK);
+           // DrawText(TextFormat("Player position: (%.2f, %.2f)", player.position.x, player.position.y), GetScreenWidth() - 300, 10, 20, BLACK);
         }
 
         // Print the current state of showConversation and insideHospital at the top-right corner
-        DrawText(TextFormat("Conversation: %s", showConversation ? "ON" : "OFF"), GetScreenWidth() - 200, 50, 20, BLACK);
+       /* DrawText(TextFormat("Conversation: %s", showConversation ? "ON" : "OFF"), GetScreenWidth() - 200, 50, 20, BLACK);
         DrawText(TextFormat("Inside Hospital: %s", insideHospital ? "YES" : "NO"), GetScreenWidth() - 200, 80, 20, BLACK);
         DrawText(TextFormat("Inside CDS: %s", insideCDS ? "YES" : "NO"), GetScreenWidth() - 200, 110, 20, BLACK);
         DrawText(TextFormat("Mad: %s", mad ? "YES" : "NO"), GetScreenWidth() - 200, 140, 20, BLACK);
@@ -981,7 +976,7 @@ void Game::Run() {
         //drawapuconvostep
         //DrawText(TextFormat("Apu: %d", apuConvoStep), GetScreenWidth() - 200, 260, 20, BLACK);
         //DrawText(TextFormat("Health: %d", healthSystem.GetHealth()), GetScreenWidth() - 200, 260, 20, BLACK);
-        
+        */
         
         // If Enter is pressed, switch to the next conversation step or hide the conversation
         if (showConversation && IsKeyPressed(KEY_ENTER)) {

@@ -1,3 +1,9 @@
 *.exe
+*.dll
 *.dsym
+*.zip
 main
+.tmp.driveupload/
+Pics/
+src/Pics/
+src/test.cpp

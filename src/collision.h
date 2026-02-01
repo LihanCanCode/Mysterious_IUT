@@ -14,10 +14,10 @@ void ResolvePlayerAudiCollision(Rectangle& playerRect, const Rectangle& audiRect
 void ResolvePlayerLibraryCollision(Rectangle& playerRect, const Rectangle& libraryRect, bool& insideLibrary, bool& playerPositionUpdated);
 void ResolvePlayerClassroomCollision(Rectangle& playerRect, const Rectangle& libraryRect, bool& insideLibrary, bool& playerPositionUpdated);
 void InsideHospital(Rectangle& playerRect, const std::vector<Rectangle>& hospitalCollisions);
-void InsideLibrary(Rectangle& playerRect, const std::vector<Rectangle>& libraryCollisions);
-void InsideHall(Rectangle& playerRect, const std::vector<Rectangle>& hallCollisions);
+// void InsideLibrary(Rectangle& playerRect, const std::vector<Rectangle>& libraryCollisions);
+// void InsideHall(Rectangle& playerRect, const std::vector<Rectangle>& hallCollisions);
 void InsideMaze(Rectangle& playerRect, const std::vector<Rectangle>& mazeCollisions);
-void InsideClassroom(Rectangle& playerRect, const std::vector<Rectangle>& classroomCollisions);
+//void InsideClassroom(Rectangle& playerRect, const std::vector<Rectangle>& classroomCollisions);
 void InsideAudi(Rectangle& playerRect, const std::vector<Rectangle>& audiCollisions);
 void ResolvePlayerBookCollision(Rectangle& playerRect, Rectangle& bookRect, bool& bookFound);
 void ResolvePlayerUsbCollision(Rectangle& playerRect, Rectangle& usbRect, bool& usbFound, bool& showcipher);

@@ -2,6 +2,11 @@
 #include <iostream>
 
 int main() {
+    const char* appDir = GetApplicationDirectory();
+    if (appDir != nullptr && appDir[0] != '\0') {
+        ChangeDirectory(appDir);
+    }
+
     try {
         Game game;
         game.Run();

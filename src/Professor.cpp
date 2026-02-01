@@ -6,21 +6,16 @@ Professor::Professor() : Player() {
 }
 
 void Professor::LoadTextures() {
-    texture = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/professor.png");
-    convoTextures[0] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro1.png");
-    convoTextures[1] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro2.png");
-    convoTextures[2] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro3.png");
-    convoTextures[3] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro4.png");
-    convoTextures[4] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro5.png");
-    convoTextures[5] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro6.png");
-    convoTextures[6] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro7.png");
-    convoTextures[7] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro8.png");
-    convoTextures[8] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro9.png");
-    convoTextures[9] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro10.png");
-    convoTextures[10] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro11.png");
-    convoTextures[11] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro12.png");
-    convoTextures[12] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro13.png");
-    convoTextures[13] = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/pro14.png");
+    texture = LoadTexture("professor.png");
+
+    const char* convoFiles[14] = {
+        "pro1.png", "pro2.png", "pro3.png", "pro4.png", "pro5.png", "pro6.png", "pro7.png",
+        "pro8.png", "pro9.png", "pro10.png", "pro11.png", "pro12.png", "pro13.png", "pro14.png"
+    };
+
+    for (int i = 0; i < 14; i++) {
+        convoTextures[i] = LoadTexture(convoFiles[i]);
+    }
 }
 
 void Professor::UnloadTextures() {

@@ -3,7 +3,7 @@
 
 Player::Player() {
     position = {135, 2200};
-    speed = 300.0f;
+    speed = 150.0f;
     currentDirection = DOWN;
     lastDirection = DOWN;
     isMoving = false;
@@ -20,7 +20,7 @@ Player::Player() {
 }
 
 void Player::LoadTextures() {
-    spriteSheet = LoadTexture("C:/Users/Lihan/Desktop/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src/player.png");
+    spriteSheet = LoadTexture("player.png");
     if (spriteSheet.id == 0) {
         TraceLog(LOG_ERROR, "Failed to load character sprite sheet!");
         textureLoaded = false;
