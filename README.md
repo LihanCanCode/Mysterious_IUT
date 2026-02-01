@@ -1,29 +1,61 @@
-# Raylib-CPP-Starter-Template-for-VSCODE-V2
-Raylib C++ Starter Template for Visual Studio Code on Windows.
-This demo project contains a bouncing ball raylib example program.
-It works with raylib version 5.0. Tested on both Windows 10 and Windows 11.
+# Mysterious IUT
 
-# How to use this template
-1. Double click on the main.code-workspace file. This will open the template in VS Code.
-2. From the Explorer Window of VS Code navigate to the src folder and double click on the main.cpp file.
-3. Press F5 on the keyboard to compile and run the program.
+Narrative-driven top-down adventure set on the IUT campus, built with C++ and [raylib](https://www.raylib.com/). You explore familiar locations, interact with classmates and faculty, and uncover a mystery by collecting key items and solving lightweight puzzles.
 
-# What's changed
-The template now uses folders for better organizion of the files. So, all the source code now lives in the src folder.
+The entry point lives in [src/main.cpp](src/main.cpp) and simply instantiates the `Game` class. All game logic resides in [src/game.cpp](src/game.cpp), which wires together the player controller, collision system, texture loading, and event sequences.
 
-# Video Tutorial
+## Story & Gameplay
 
-<p align="center">
-  <img src="preview.jpg" alt="" width="800">
-</p>
+- **Setting** – A hand-drawn map of the IUT campus with buildings such as the lake, CDS, library, hospital, auditorium, and halls. The player spawns near the dorm area.
+- **Goal** – Progress through a chain of interactions: talk to NPCs (Bhai, Apu, Professor, Gardener, Hacker, Imam), gather key items (key, book, USB), unlock restricted areas (hospital, library, classrooms, maze), and trigger cinematic sequences that culminate in the final reveal.
+- **Mechanics** – Movement uses arrow keys; collisions prevent walking through buildings or props. Rectangle triggers inside `game.cpp` toggle state flags (e.g., `insideLibrary`, `showConversation`, or `mazeActive`) and display dialog PNGs to drive the storyline.
+- **Visuals & UI** – Conversations are delivered through illustrated panels (`conversation*.png`, `bhai_convo*.png`, etc.). Health, path overlays, mystery clues, and ending slides are rendered as textured quads anchored to the camera.
 
-<p align="center">
-🎥 <a href="https://www.youtube.com/watch?v=PaAcVk5jUd8">Video Tutorial on YouTube</a>
-</p>
+### Flow From Code
 
-<br>
-<br>
-<p align="center">
-| 📺 <a href="https://www.youtube.com/channel/UC3ivOTE5EgpmF2DHLBmWIWg">My YouTube Channel</a>
-| 🌍 <a href="http://www.educ8s.tv">My Website</a> | <br>
-</p>
+1. `Game::Initialize()` loads every texture, sets the camera, and preps dialogue/state flags.
+2. `Game::Run()` (defined in `game.cpp`) loops through `Update()` and `Draw()`:
+  - `Update()` handles input, camera movement, collision checks against the building vectors, and state transitions when the player overlaps key rectangles.
+  - `Draw()` renders the base map, player sprite, NPCs, highlight prompts, and whichever conversation/ending textures are active based on the current progression flags.
+3. Completing the required interactions sets `Final = true`, advancing to the ending slides.
+
+## Controls
+
+- **Arrow keys** – Move the protagonist
+- **Space/Enter** – Advance conversation panels where applicable
+- **Escape** – Quit (handled by raylib default window close)
+
+## Run The Game (Prebuilt Executable)
+
+The repository ships with a ready-to-play binary in `src/game.exe`. Launch it from the `src` directory so relative asset loads succeed.
+
+```powershell
+Set-Location "D:/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src"
+./game.exe
+```
+
+## Build From Source
+
+1. Install the official **raylib 5.0 Windows** package (defaults to `C:/raylib`).
+2. Open PowerShell in the project root and build from `src`:
+
+  ```powershell
+  Set-Location "D:/Semester 2-1/Oop Lab/Project_Fall/Project_Fall/src"
+  mingw32-make
+  ```
+
+  The Makefile links against `C:/raylib/raylib` by default. Override via `mingw32-make RAYLIB_PATH="X:/path/to/raylib"` if your SDK lives elsewhere.
+
+3. Run the fresh executable as described above.
+
+## Assets
+
+- `Pics/` and `src/Pics/` (ignored for Git) contain the original art sources.
+- Production textures are copied beside the executable under `src/` so the game can load them without extra configuration.
+
+## Credits
+
+- Game design, story, and art – Team 14
+- Engine – raylib 5.0 by Ramon Santamaría and contributors
+
+Enjoy uncovering the mysteries of IUT!
