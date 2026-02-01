@@ -1,46 +1,47 @@
 # Mysterious IUT
+*A campus mystery where every familiar landmark hides a forgotten truth.*
 
-## 1️⃣ Project Title + Tagline
-- **Game Name:** Mysterious IUT
-- **Hook:** A campus mystery where every familiar landmark hides a forgotten truth.
+## Game Details
+- Genre: Mystery / Psychological Thriller
+- Perspective: Top-down exploration
+- Platform: Windows PC
+- Engine: raylib 5.0
+- Language: C++17
+- Status: In development (playable vertical slice)
 
-## 2️⃣ Short Description
-Mysterious IUT is a mystery adventure with thriller undertones, presented from a top-down perspective and developed for Windows PC with C++ and raylib. Players explore the IUT campus, piecing together cryptic clues and conversations to uncover what really happened to a vanished professor—all without spoiling the truth outright.
+## Story Premise
+- **Setting:** A hand-crafted IUT campus, stretching from dorm courtyards to sealed laboratories.
+- **Protagonist:** A first-semester student charting new territory.
+- **Hook:** Rumors of Professor Heigenberg and Project Bhool Bhoolaiya refuse to fade, yet no one can remember who was involved—or why the campus feels subtly wrong.
 
-## 3️⃣ Story Premise (Spoiler-Free)
-- **Setting:** A meticulously mapped recreation of the IUT campus featuring the lake, CDS, dorms, classrooms, library, hospital, and hidden facilities.
-- **Protagonist:** A wide-eyed freshman, eager to learn the campus layout and culture.
-- **Conflict:** The campus murmurs about Professor Heigenberg’s secret experiment, Project Bhool Bhoolaiya, and why no one seems to remember his assistant—or the professor himself. Your curiosity pulls you deeper into the mystery.
+## Gameplay Overview
+- Traverse the campus with smooth camera-following movement.
+- Interview classmates, faculty, and staff through contextual dialogues.
+- Collect key items to access locked facilities and advance story beats.
+- Solve location-sensitive puzzles that tie rumors to physical evidence.
+- Follow investigation states scripted inside [src/game.cpp](src/game.cpp).
 
-## 4️⃣ Gameplay Overview
-- Explore the campus in a free-roaming top-down world with camera-following movement.
-- Talk to classmates and faculty to gather rumors, alibis, and critical hints.
-- Collect key items to unlock restricted buildings and trigger story beats.
-- Solve light environmental puzzles that link evidence to locations.
-- Follow state-driven event sequences coded in [src/game.cpp](src/game.cpp) that react to your discoveries.
+## Key Features
+- 🕵️‍♂️ Player-paced investigation across interconnected campus zones.
+- 🧩 Environmental puzzles and item-based progression.
+- 🔍 Illustrated conversation panels that surface each character’s perspective.
+- 🔐 Area gating that rewards patient exploration.
+- 🔊 Layered ambience and overlays nudging the tension curve.
 
-## 5️⃣ Key Features
-- 🧩 Campus-wide investigation that rewards thorough exploration.
-- 🕵️ Player-driven narrative pacing—choose who to question first.
-- 🔐 Gated areas that open as you assemble key clues and items.
-- 🎭 Character-focused dialogue panels that convey mood and stakes.
-- 🗂️ Evidence tracking through scripted state flags and item pickups.
-- 🎧 Ambient soundscape and visual overlays that heighten tension.
+## Controls / How to Play
+- Arrow Keys — Move
+- Space / Enter — Advance dialogue and confirm prompts
+- Escape — Close the game window (raylib default)
 
-## 6️⃣ Controls / How to Play
-- Arrow Keys: Move the protagonist
-- Space or Enter: Advance dialogue and confirm prompts
-- Escape: Exit to desktop (raylib default)
-
-## 7️⃣ Screenshots / GIFs
+## Screenshots / GIFs
 <p align="center">
-  <img src="src/conversation1.png" alt="Conversation panel with NPC" width="720">
+  <img src="src/conversation1.png" alt="Conversation panel with an NPC" width="720">
 </p>
 <p align="center">
-  <img src="src/menu1.png" alt="Main menu highlighting Play and Exit" width="720">
+  <img src="src/menu1.png" alt="Main menu with Play and Exit options" width="720">
 </p>
 
-## 8️⃣ Installation / Run Instructions
+## Installation / Run Instructions
 **Play the bundled build**
 
 ```powershell
@@ -57,19 +58,34 @@ Set-Location "path\to\Project_Fall\src"
 mingw32-make
 ```
 
-3. Override the SDK path if needed:
+3. Override the SDK path if raylib lives elsewhere:
 
 ```powershell
 mingw32-make RAYLIB_PATH="X:/path/to/raylib"
 ```
 
-4. Run the newly compiled `game.exe` from the same directory so assets resolve properly.
+4. Run `game.exe` from the same directory so assets resolve correctly.
 
-## 9️⃣ Tech Stack
-- Engine / Framework: raylib 5.0
-- Language: C++17
-- Build System: MinGW make with the provided Makefile
-- Entry Point: [src/main.cpp](src/main.cpp) spawning the `Game` controller implemented in [src/game.cpp](src/game.cpp)
+## Tech Stack
+- Core systems in [src/main.cpp](src/main.cpp) and [src/game.cpp](src/game.cpp)
+- Collision and interaction helpers in [src/collision.cpp](src/collision.cpp)
+- Art pipeline staged through layered PNG textures housed near the executable
 
-## 🔟 Project Status
-- In development — playable campus slice with core narrative loop and mechanics implemented.
+## Inspirations
+- Campus legends traded between IUT batches
+- Narrative-driven mysteries such as Oxenfree and Night in the Woods
+- Classic investigative adventures balancing exploration with character drama
+
+## Roadmap
+- Expand optional dialogue branches and side encounters
+- Add an in-game investigation journal UI for tracking leads
+- Introduce dynamic lighting cues and refined ambience mixes
+- Polish collision edges and NPC pathing near dense areas
+
+## Known Issues
+- Windows-only build; Linux/macOS ports under evaluation
+- Occasional sprite overlap around doorway choke points
+- Placeholder audio cues in late investigation sequences
+
+### A Note from Lihan
+Thank you for walking these halls—every whisper you follow brings us closer to remembering what the campus chose to forget.
