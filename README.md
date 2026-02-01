@@ -10,23 +10,23 @@
 - Status: In development (playable vertical slice)
 
 ## Story Premise
-- **Setting:** A hand-crafted IUT campus, stretching from dorm courtyards to sealed laboratories.
+- **Setting:** A hand-crafted IUT campus reimagined as a trail of clues—from dorm courtyards to dim faculty offices lined with evidence boards.
 - **Protagonist:** A first-semester student charting new territory.
-- **Hook:** Rumors of Professor Heigenberg and Project Bhool Bhoolaiya refuse to fade, yet no one can remember who was involved—or why the campus feels subtly wrong.
+- **Hook:** Rumors of Professor Heigenberg and Project Bhool Bhoolaiya refuse to fade, yet no one can remember who was involved—or why the campus feels subtly wrong amid flickering hallway lights and hushed conversations.
 
 ## Gameplay Overview
 - Traverse the campus with smooth camera-following movement.
-- Interview classmates, faculty, and staff through contextual dialogues.
-- Collect key items to access locked facilities and advance story beats.
-- Solve location-sensitive puzzles that tie rumors to physical evidence.
+- Interview classmates, faculty, and staff through contextual dialogues reminiscent of field interrogations.
+- Collect key items—case files, keycards, forgotten tools—to access locked facilities and advance story beats.
+- Solve location-sensitive puzzles that tie rumors to physical evidence pinned across campus notice boards.
 - Follow investigation states scripted inside [src/game.cpp](src/game.cpp).
 
 ## Key Features
 - 🕵️‍♂️ Player-paced investigation across interconnected campus zones.
-- 🧩 Environmental puzzles and item-based progression.
-- 🔍 Illustrated conversation panels that surface each character’s perspective.
+- 🧩 Environmental puzzles and item-based progression inspired by classic detective adventures.
+- 🔍 Illustrated conversation panels styled as evidence visuals that surface each character’s perspective.
 - 🔐 Area gating that rewards patient exploration.
-- 🔊 Layered ambience and overlays nudging the tension curve.
+- 🔊 Layered ambience—rain against windows, distant PA echoes—and overlays nudging the tension curve.
 
 ## Controls / How to Play
 - Arrow Keys — Move
@@ -78,8 +78,8 @@ mingw32-make RAYLIB_PATH="X:/path/to/raylib"
 
 ## Roadmap
 - Expand optional dialogue branches and side encounters
-- Add an in-game investigation journal UI for tracking leads
-- Introduce dynamic lighting cues and refined ambience mixes
+- Add an in-game investigation journal UI for tracking leads and persons of interest
+- Introduce dynamic lighting cues, weather variants, and refined ambience mixes for late-night stakeouts
 - Polish collision edges and NPC pathing near dense areas
 
 ## Known Issues
