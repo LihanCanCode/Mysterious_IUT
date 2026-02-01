@@ -15,29 +15,27 @@
 - Language: C++17
 - Status: In development (playable vertical slice)
 
-## Story Premise
-- **Setting:** A hand-crafted IUT campus reimagined as a trail of clues—from dorm courtyards to dim faculty offices lined with evidence boards.
-- **Protagonist:** A first-semester student charting new territory.
-- **Hook:** Rumors of Professor Heigenberg and Project Bhool Bhoolaiya refuse to fade, yet no one can remember who was involved—or why the campus feels subtly wrong amid flickering hallway lights and hushed conversations.
+## Design Intent
+Mysterious IUT is built around the idea that places remember more than people do. Familiar campus spaces are treated as unreliable witnesses—quietly observing, subtly misleading, and occasionally revealing fragments of truth. The investigation is designed to feel personal, slow-burning, and reflective rather than urgent or combat-driven.
 
-## Gameplay Overview
-- Traverse the campus with smooth camera-following movement.
-- Interview classmates, faculty, and staff through contextual dialogues reminiscent of field interrogations.
-- Collect key items—case files, keycards, forgotten tools—to access locked facilities and advance story beats.
-- Solve location-sensitive puzzles that tie rumors to physical evidence pinned across campus notice boards.
-- Follow investigation states scripted inside [src/game.cpp](src/game.cpp).
+## Signature Mechanic
+- Certain conversations and objects subtly change after major discoveries. Characters may recall events differently, and environmental details can shift, suggesting that the investigation itself is influencing reality.
 
-## Key Features
-- 🕵️‍♂️ Player-paced investigation across interconnected campus zones.
-- 🧩 Environmental puzzles and item-based progression inspired by classic detective adventures.
-- 🔍 Illustrated conversation panels styled as evidence visuals that surface each character’s perspective.
-- 🔐 Area gating that rewards patient exploration.
-- 🔊 Layered ambience—rain against windows, distant PA echoes—and overlays nudging the tension curve.
+## Gameplay & Core Loop
+- Traverse the campus with smooth camera-following movement across interconnected zones.
+- Explore each area to uncover rumors, objects, and environmental anomalies.
+- Interview classmates, faculty, and staff through contextual dialogue sequences reminiscent of field interrogations.
+- Cross-reference information gathered from conversations and surroundings to progress the investigation.
+- Collect key items—case files, keycards, and forgotten tools—that unlock new locations and narrative states.
+- Investigation flow and state transitions are scripted within [src/game.cpp](src/game.cpp).
 
-## Controls / How to Play
-- Arrow Keys — Move
-- Space / Enter — Advance dialogue and confirm prompts
-- Escape — Close the game window (raylib default)
+## Investigation Systems & Features
+- 🕵️‍♂️ Player-paced investigation that favors observation and deduction over explicit guidance.
+- 🧩 Location-sensitive environmental puzzles tied to physical evidence boards and campus landmarks.
+- 🔍 Illustrated dialogue panels presented as evidence visuals, reflecting each character’s perspective and reliability.
+- 🔐 Area gating and revisitation mechanics that reward patience and attention to detail.
+- 🧠 Dialogue choices subtly affect information clarity rather than branching outcomes.
+- 🔊 Layered ambient sound design—rain against windows, distant PA echoes, and low-frequency overlays—to steadily build tension.
 
 ## Screenshots / GIFs
 <p align="center">
@@ -103,4 +101,4 @@ mingw32-make RAYLIB_PATH="X:/path/to/raylib"
 - Placeholder audio cues in late investigation sequences
 
 ### A Note from Lihan
-Thank you for walking these halls—every whisper you follow brings us closer to remembering what the campus chose to forget.
+Thank you for walking these halls—every whisper you follow brings us closer to remembering what the campus chose to forget. Can you find the professor?
