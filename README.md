@@ -1,5 +1,11 @@
-# Mysterious IUT
-*A campus mystery where every familiar landmark hides a forgotten truth.*
+<div align="center">
+  <h1>Mysterious IUT</h1>
+  <h3>A campus mystery where every familiar landmark hides a forgotten truth.</h3>
+  <p>A freshman arrives at IUT expecting orientation walks and welcome banners.</p>
+  <p>Whispers about Professor Heigenberg's sealed laboratory drift through every corridor.</p>
+  <p>Evidence boards, coded notes, and missing classmates tease a memory-altering experiment.</p>
+  <p>Each clue you follow hints that the investigation may circle back to you.</p>
+</div>
 
 ## Game Details
 - Genre: Mystery / Psychological Thriller
@@ -35,10 +41,19 @@
 
 ## Screenshots / GIFs
 <p align="center">
-  <img src="src/conversation1.png" alt="Conversation panel with an NPC" width="720">
+  <img src="src/menu1.png" alt="Conversation panel with an NPC" width="720">
 </p>
 <p align="center">
-  <img src="src/menu1.png" alt="Main menu with Play and Exit options" width="720">
+  <img src="src/map.png" alt="Main menu with Play and Exit options" width="720">
+</p>
+<p align="center">
+  <img src="src/end2.png" alt="Main menu with Play and Exit options" width="720">
+</p>
+<p align="center">
+  <img src="src/end3.png" alt="Main menu with Play and Exit options" width="720">
+</p>
+<p align="center">
+  <img src="src/end4.png" alt="Main menu with Play and Exit options" width="720">
 </p>
 
 ## Installation / Run Instructions
